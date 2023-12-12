@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="600" Width="350">
+    <StackPanel>
+        <Image
+            x:Name="myImage"
+            MouseUp="Image_MouseUp"
+            Width="100px" Source="pack://application:,,,/Images/WteqB91.jpeg"></Image>
+        <Slider x:Name="mySlider" ValueChanged="mySlider_ValueChanged"
+                Margin="20" Maximum="100" Minimum="1" TickPlacement="BottomRight"
+                TickFrequency="10" IsSnapToTickEnabled="True"
+                Value="52"></Slider>
+        <TextBlock x:Name="myText"
+                   FontSize="{Binding ElementName=mySlider, Path=Value,
+            UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        <Calendar
+            SelectedDate="01.01.2022"
+            SelectedDatesChanged="myCalendar_SelectedDatesChanged"
+            x:Name="myCalendar"
+            DisplayMode="Month">
+            <!--hmm-->
+            <!--hmm<Calendar.BlackoutDates>-->
+            <!--hmm    <CalendarDateRange Start="03.05.2021" End="03.08.2022"></CalendarDateRange> -->
+            <!--hmm</Calendar.BlackoutDates>-->
+
+        </Calendar>
+        <TextBlock x:Name="myText2"></TextBlock>
+        <DatePicker
+            SelectedDate="01/01/2023"
+            SelectedDateFormat="Long"
+            SelectedDateChanged="DatePicker_SelectedDateChanged"></DatePicker>
+        <!--hmm    <CalendarDateRange Start="03/05/2021" End="03/08/2022"></CalendarDateRange> -->
+    </StackPanel>
 </Window>
